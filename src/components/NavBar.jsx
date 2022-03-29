@@ -2,8 +2,7 @@ import React from 'react';
 import logo from '../media/logo.svg';
 import { Box, ThemeProvider, createTheme } from '@mui/system';
 import { styled } from '@mui/material/styles';
-
-
+import '../index.css';
 
 
 export default function App() {
@@ -23,8 +22,6 @@ export default function App() {
 
     const Img = styled('img')``;
     const Ul = styled('ul')``;
-    const Li = styled('li')``;
-    const Link = styled('a')``;
 
     return (
         <ThemeProvider theme={theme}>
@@ -33,28 +30,27 @@ export default function App() {
                 height: 70,
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'space-between'
-
+                justifyContent: 'space-between',
+                px: 5, 
             }}>
                 <Img src={logo} className="logo" alt="logo" sx={{
                     width: 150,
                 }} />
 
-                <Box>
+                <Box sx={{display: 'block', width: '50%',}}>
                     <Ul sx={{
                         display: 'flex',
                         flexDirection: 'row',
+                        justifyContent: 'space-between',
                         color: 'text.secondary',
                     }}>
-                        <Li><Link>Link 1</Link></Li>
-                        <Li><Link>Link 1</Link></Li>
-                        <Li><Link>Link 1</Link></Li>
-                        <Li><Link>Link 1</Link></Li>
+                        <li><a href="#">Categoria</a></li>
+                        <li><a href="#">Categoria</a></li>
+                        <li><a href="#">Categoria</a></li>
+                        <li><a href="#">Categoria</a></li>
                     </Ul>
                 </Box>
             </Box>
-
-
         </ThemeProvider>
     );
 }
