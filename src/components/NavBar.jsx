@@ -3,10 +3,10 @@ import logo from '../media/logo.svg';
 import { Box, ThemeProvider, createTheme } from '@mui/system';
 import { styled } from '@mui/material/styles';
 import '../index.css';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import CartWidget from './CartWidget'
 
 
-export default function App() {
+export default function NavBar() {
     const theme = createTheme({
         palette: {
             background: {
@@ -51,13 +51,8 @@ export default function App() {
                     </Ul>
                 </Box>
 
-                <ShoppingBagIcon sx={{
-                    color: 'background.light',
-                    fontSize: 32,
-                    position: 'relative',
-                    top: 15
-                }} />
-
+                <CartWidget />
+                
             </Box>
         </ThemeProvider>
     );
