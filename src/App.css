@@ -7,10 +7,40 @@ a {
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+    transition: all 2s;
 }
 
 a:hover{
-    text-decoration: underline;
+    font-style: italic;
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*Botones*/
+button.MuiButton-contained{
+    font-family: 'Poppins', sans-serif;
+    border-radius: 0;
+    background: #000;
+    margin-top: 5%;
+}
+
+
+button.MuiButton-contained:hover{
+    background: #000;
+}
+
+button.MuiButton-outlined{
+    border-radius: 0;
+    border-color: #ddd;
+    color: #000;
+}
+
+button.MuiButton-outlined:hover{
+    border-color: #aaa;
+    background: #f9f9f9;
 }
 
 li::marker{
