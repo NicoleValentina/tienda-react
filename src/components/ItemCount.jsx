@@ -29,7 +29,7 @@ export default function ItemCount({ stock }) {
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                width: '20%'
+                
             }}>
                 <Box sx={{
                     display: 'flex',
