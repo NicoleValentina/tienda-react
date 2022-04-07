@@ -17,30 +17,30 @@ export default function ItemContainer({ stock }) {
                     resolve(
                         [{
                             nombre: "Polerón",
-                            precio: "20.0",
+                            precio: "20.000",
                             stock: "10",
-                            imagen: "media/poleron.jpg",
+                            imagen: 'poleron',
                             id: "01",
                           },
                           {
                             nombre: "Pantalón",
-                            precio: "25.0",
+                            precio: "25.000",
                             stock: "15",
-                            imagen: "media/pantalon.jpg",
+                            imagen: 'pantalon',
                             id: "02",
                           },
                           {
                             nombre: "Beanie",
-                            precio: "10.0",
+                            precio: "10.000",
                             stock: "8",
-                            imagen: "media/beanie.jpg",
+                            imagen: "beanie",
                             id: "03",
                           },
                           {
                             nombre: "Cortaviento",
-                            precio: "25.0",
+                            precio: "25.000",
                             stock: "10",
-                            imagen: "media/cortaviento.jpg",
+                            imagen: 'cortaviento',
                             id: "08",
                           }
                         ]

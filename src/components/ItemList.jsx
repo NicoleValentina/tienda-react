@@ -8,7 +8,8 @@ export default function ItemList({ productos }) {
         <>
             <Box sx={{
                 display: 'flex',
-                flexDirection: 'row'
+                flexDirection: 'row',
+                justifyContent: 'space-between',
             }}>
                 {productos.map(item =>
                     <Item key={item.id} item={item} />)}
