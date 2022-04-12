@@ -54,3 +54,13 @@ li::marker{
 }
 
 
+/*Item Detail*/
+
+.itemDetail {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5%
+}
+
+.itemDetail h2 {
+    font-size: 48px;
+}
