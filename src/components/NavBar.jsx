@@ -26,7 +26,7 @@ export default function NavBar() {
 
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={{
+            <Box className="navBar" sx={{
                 bgcolor: 'background.main',
                 height: 70,
                 display: 'flex',

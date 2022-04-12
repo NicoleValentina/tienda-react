@@ -22,7 +22,7 @@ export default function ItemDetailContainer() {
         <>
             <Box sx={{
                 mx: 5,
-                my: 5,
+                my: 15,
             }}>
                 <ItemDetail item={item} />
             </Box>
