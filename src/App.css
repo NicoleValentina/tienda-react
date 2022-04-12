@@ -55,7 +55,6 @@ li::marker{
 
 
 /*Item Detail*/
-
 .itemDetail {
     border-bottom: 1px solid #ddd;
     padding-bottom: 5%
@@ -63,4 +62,16 @@ li::marker{
 
 .itemDetail h2 {
     font-size: 48px;
+    margin: 0;
+}
+
+.itemDetail h3 {
+    font-size: 32px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.itemDetail p {
+    color: #666;
+    font-size: 14px;
 }

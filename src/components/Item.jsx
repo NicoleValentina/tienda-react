@@ -16,7 +16,6 @@ export default function Item({ item }) {
                 <h2>{item.nombre}</h2>
                 <p>${item.precio}</p>
                 <ItemCount stock={item.stock} />
-                <button id={"detalle" + item.id}>Ver Detalle</button>
             </Box>
         </>
 

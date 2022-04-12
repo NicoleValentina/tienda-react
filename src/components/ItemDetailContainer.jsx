@@ -24,7 +24,6 @@ export default function ItemDetailContainer() {
                 mx: 5,
                 my: 5,
             }}>
-                <h2>Detalle producto</h2>
                 <ItemDetail item={item} />
             </Box>
         </>

@@ -7,15 +7,17 @@ export default function ItemDetail({ item }) {
 
     console.log(item);
 
-    const Img = styled('img') ``
+    const Img = styled('img')``
 
     return (
         <>
             <Box className="itemDetail" sx={{
                 display: 'flex',
+                alignItems: 'center'
+
             }}>
                 <Box sx={{
-                    width: '50%'
+                    width: '50%',
                 }}>
                     <Img className={item.id} src={item.imagen} sx={{
                         width: '75%'
@@ -25,10 +27,17 @@ export default function ItemDetail({ item }) {
                 <Box sx={{
                     width: '50%'
                 }}>
+                    <p>{item.categoria}</p>
                     <h2>{item.nombre}</h2>
                     <h3>${item.precio}</h3>
                     <p>Stock disponible: {item.stock} unidades</p>
-                    <ItemCount stock={item.stock} />
+
+                    <Box sx={{
+                        width: '50%',
+                        my: 10,
+                    }}>
+                        <ItemCount stock={item.stock} />
+                    </Box>
                 </Box>
             </Box>
         </>
