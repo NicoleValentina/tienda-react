@@ -7,7 +7,6 @@ h1, h2, h3 {
 }
 
 
-
 /*Navbar*/
 a {
     color: #fff;
@@ -53,4 +52,5 @@ button.MuiButton-outlined:hover{
 li::marker{
     color: #000;
 }
+
 
