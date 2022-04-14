@@ -12,7 +12,7 @@ export default function Item({ item }) {
                 display: 'flex',
                 flexDirection: 'column',
                 width: '20%'
-            }}>
+            }} className="item">
                 <Link to={`/item/` + item.id} className="itemLink">
                     <img src={item.imagen} />
                     <h2>{item.nombre}</h2>

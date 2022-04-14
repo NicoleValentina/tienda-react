@@ -9,9 +9,9 @@ export default function ItemList({ productos }) {
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'row'
-            }} className="item">
+            }} className="itemGrid">
                 {productos.map(item =>
-                    <Item key={item.id} item={item} />)}
+                    <Item key={item.id} item={item}/>)}
             </Box>
         </>
     )

@@ -63,8 +63,13 @@ li::marker{
 }
 
 /*Item*/
+.itemGrid{
+    flex-wrap: wrap;
+    gap: 6%;
+}
+
 .item{
-    gap: 8%
+    margin-bottom: 5%;
 }
 
 .itemLink{
