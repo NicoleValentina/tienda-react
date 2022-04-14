@@ -9,8 +9,8 @@ import { useParams } from "react-router";
 
 export default function ItemContainer() {
 
-  let [productos, setProductos] = useState([])
-  let [titulo, setTitulo] = useState([])
+  const [productos, setProductos] = useState([])
+  const [titulo, setTitulo] = useState([])
 
   const { category } = useParams()
 

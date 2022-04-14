@@ -54,9 +54,7 @@ export default function NavBar() {
                 px: 5,
             }}>
                 <Link to={`/`}>
-                    <Img src={logo} className="logo" alt="logo" sx={{
-                        width: 150,
-                    }} />
+                    <Img src={logo} className="logo" alt="logo" />
                 </Link>
 
                 <Box sx={{ display: 'block', width: '50%', }}>

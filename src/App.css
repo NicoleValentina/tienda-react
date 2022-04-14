@@ -8,20 +8,29 @@ h1, h2, h3 {
 
 
 /*Navbar*/
-a {
+.navBar a {
     color: #fff;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    transition: all 2s;
+    
 }
 
-a:hover{
-    font-style: italic;
+.navBar li{
+    transition: all 1s;
+}
+
+.navBar li:hover{
+    transform: skewX(-15deg);
 }
 
 p{
     font-family: 'Poppins', sans-serif;
+}
+
+.logo{
+    margin-top: 10%;
+    width: 150px
 }
 
 
@@ -53,6 +62,24 @@ li::marker{
     color: #000;
 }
 
+/*Item*/
+.itemLink{
+    text-decoration: none;
+}
+
+.itemLink img{
+    width: 100%;
+}
+
+.itemLink h2 {
+    color: #000;
+    margin-bottom: 0;
+    transition: all 1s;
+}
+
+.itemLink h2:hover{
+    transform: skewX(-15deg);
+}
 
 /*Item Detail*/
 .itemDetail {

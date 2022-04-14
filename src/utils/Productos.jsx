@@ -27,7 +27,7 @@ const productos = [{
   precio: "25.000",
   stock: "10",
   imagen: "https://previews.dropbox.com/p/thumb/ABjAdYL88z6FKDmXv6scXHUqt88R9LPl1EzDqSpFWHZ8AhszlcnJWFbFTA26xQ_16dHAvC8i4wKM9IafU1Kcu5ARZ72NevjLyRlgZmNP1hw96ZmNuiMEzPPb-LuoYcIp6kCLDMXmiblJzX-55ITRg_YDuQe8aDQMB8XZwA_AvB2gktErfgpttujspg7OW4MdTcv4KoCB5PCKxR5fhkubpBVam6TvRo1M0ui6Wt0A9Esmxky_N_38K8k53eTqttwn6vKsdidAdr1MOW-0Hqw6GUPeIyl8emxuAnb5NQQTESZTGJ45PtDV0QWLCOVo2_Mu09j4fMZNa9VD6WWN_slfWeSCvLw-gzMaWbW9qBsh8LjLd6AU6RMKT7NEjNav9dS-Y2g/p.jpeg",
-  id: 3,
+  id: 4,
   categoria: "Mujer",
 }
 ]
