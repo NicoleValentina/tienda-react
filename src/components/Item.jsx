@@ -1,6 +1,7 @@
 import React from "react"
 import ItemCount from './ItemCount'
 import { Box } from '@mui/system';
+import { Link } from "react-router-dom";
 
 
 export default function Item({ item }) {
@@ -12,8 +13,10 @@ export default function Item({ item }) {
                 flexDirection: 'column',
                 width: '20%'
             }}>
-                <img src={item.imagen} />
-                <h2>{item.nombre}</h2>
+                <Link to={`/item/` + item.id}>
+                    <img src={item.imagen} />
+                    <h2>{item.nombre}</h2>
+                </Link>
                 <p>${item.precio}</p>
                 <ItemCount stock={item.stock} />
             </Box>

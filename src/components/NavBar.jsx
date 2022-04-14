@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../media/logo.svg';
+import { listaProductos } from '../utils/Productos'
+import { Link } from "react-router-dom";
 import { Box, ThemeProvider, createTheme } from '@mui/system';
 import { styled } from '@mui/material/styles';
 import '../index.css';
@@ -7,6 +9,23 @@ import CartWidget from './CartWidget'
 
 
 export default function NavBar() {
+
+    const [categoria, setCategoria] = useState([])
+
+    useEffect(() => {
+        listaProductos()
+            .then((res) => {
+                let cat = res.map(item => item.categoria)
+                let nav = [...new Set(cat)]
+                setCategoria(nav)
+            })
+
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [])
+
+
     const theme = createTheme({
         palette: {
             background: {
@@ -34,9 +53,11 @@ export default function NavBar() {
                 justifyContent: 'space-between',
                 px: 5,
             }}>
-                <Img src={logo} className="logo" alt="logo" sx={{
-                    width: 150,
-                }} />
+                <Link to={`/`}>
+                    <Img src={logo} className="logo" alt="logo" sx={{
+                        width: 150,
+                    }} />
+                </Link>
 
                 <Box sx={{ display: 'block', width: '50%', }}>
                     <Ul sx={{
@@ -45,14 +66,15 @@ export default function NavBar() {
                         justifyContent: 'space-between',
                         color: 'text.secondary',
                     }}>
-                        <li><a href="#">Mujer</a></li>
-                        <li><a href="#">Hombre</a></li>
-                        <li><a href="#">Accesorios</a></li>
+                        {categoria.map(item =>
+                            <li key={item}><Link to={`/category/` + item}>{item}</Link></li>)}
+
+
                     </Ul>
                 </Box>
 
                 <CartWidget />
-                
+
             </Box>
         </ThemeProvider>
     );

@@ -5,8 +5,6 @@ import { styled } from '@mui/material/styles';
 
 export default function ItemDetail({ item }) {
 
-    console.log(item);
-
     const Img = styled('img')``
 
     return (
