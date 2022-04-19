@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from './ItemCount'
 import { Box } from '@mui/system';
 import { styled } from '@mui/material/styles';
 
 export default function ItemDetail({ item }) {
+
+    const [qty, setQty] = useState(0)
+
+    function countOnAdd (q) {
+        setQty(q)   
+    }
+
+    console.log(qty);
+   
 
     const Img = styled('img')``
 
@@ -34,7 +43,7 @@ export default function ItemDetail({ item }) {
                         width: '50%',
                         my: 10,
                     }}>
-                        <ItemCount stock={item.stock} />
+                        <ItemCount stock={item.stock} onAdd={countOnAdd} />
                     </Box>
                 </Box>
             </Box>

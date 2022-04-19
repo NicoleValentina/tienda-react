@@ -6,7 +6,7 @@ import { Box } from '@mui/system';
 import '../App.css';
 
 
-export default function ItemCount({ stock }) {
+export default function ItemCount({ stock, onAdd }) {
 
     //Sumar restar productos
     const [count, setCount] = useState(0)
@@ -19,9 +19,6 @@ export default function ItemCount({ stock }) {
         count > 0 && setCount(count - 1)
     }
 
-    function onAdd() {
-        alert(count + ' productos agregados al carro')
-    }
 
 
     return (
@@ -40,7 +37,7 @@ export default function ItemCount({ stock }) {
                     <Button onClick={add} variant="outlined"> <AddIcon /> </Button>
                 </Box>
 
-                <Button onClick={onAdd} variant="contained">Agregar al carro</Button>
+                <Button onClick={() => onAdd(count)} variant="contained">Agregar al carro</Button>
             </Box>
         </>
 
