@@ -11,6 +11,9 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
+a {
+    text-decoration: none;
+}
 
 /*Navbar*/
 .navBar a {
@@ -115,4 +118,8 @@ li::marker{
 .itemDetail p {
     color: #666;
     font-size: 14px;
+}
+
+a button {
+    text-decoration: none;
 }
