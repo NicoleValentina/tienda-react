@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import ItemCount from './ItemCount'
 import { Box } from '@mui/system';
 import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
 
 export default function ItemDetail({ item }) {
 
@@ -43,7 +45,11 @@ export default function ItemDetail({ item }) {
                         width: '50%',
                         my: 10,
                     }}>
-                        <ItemCount stock={item.stock} onAdd={countOnAdd} />
+                    
+                    {
+                    qty === 0 ? <ItemCount stock={item.stock} onAdd={countOnAdd} /> : <Link to={`/cart`}><Button variant="contained">Finalizar compra</Button></Link>
+                    }
+                        
                     </Box>
                 </Box>
             </Box>
