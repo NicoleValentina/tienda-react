@@ -13,8 +13,6 @@ export default function ItemDetail({ item }) {
         setQty(q)   
     }
 
-    console.log(qty);
-   
 
     const Img = styled('img')``
 
