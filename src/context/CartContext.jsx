@@ -8,12 +8,12 @@ export default function CartContextProvider({ children }) {
   //Log carro
   console.log(cart);
   
-
+    //Agregar al carro
   function addToCart(item) {
-
     setCart([...cart, item])
   }
 
+  //Revisar si hay items duplicados
   function isInCart(item){   
     const indexItem = cart.findIndex((cartItem) => cartItem.id === item.id)
 
@@ -23,14 +23,17 @@ export default function CartContextProvider({ children }) {
         updateCart[indexItem].count = updateCart[indexItem].count + item.count
 
         setCart(updateCart)
+
     } else {
         addToCart(item)}
   }
 
+  //Remover un producto
   function removeFromCart(id) {
     setCart([cart.filter((item) => item.id !== id)])
   }
 
+  //Remover todo
   function clear() {
     setCart([]);
   }
