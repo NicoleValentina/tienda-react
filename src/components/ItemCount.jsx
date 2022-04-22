@@ -43,7 +43,7 @@ export default function ItemCount({ stock, onAdd, item }) {
                 <Button onClick={() => { 
                     onAdd(count); 
                     addToCart({...item, count})
-                    isInCart(item.id)
+                    isInCart({...item, count})
                     }} variant="contained">Agregar al carro</Button>
             </Box>
         </>

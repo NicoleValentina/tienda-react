@@ -4,15 +4,27 @@ export const CartContext = createContext();
 
 export default function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
+
+  //Log carro
+  console.log(cart);
   
 
   function addToCart(item) {
+
     setCart([...cart, item])
   }
-  console.log(cart);
 
-  function isInCart(id){   
-    
+  function isInCart(item){   
+    const indexItem = cart.findIndex((cartItem) => cartItem.id === item.id)
+
+    if (indexItem !== -1) {
+        const updateCart = [...cart]
+
+        updateCart[indexItem].count = updateCart[indexItem].count + item.count
+
+        setCart(updateCart)
+    } else {
+        addToCart(item)}
   }
 
   function removeFromCart(id) {
