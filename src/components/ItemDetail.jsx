@@ -47,7 +47,7 @@ export default function ItemDetail({ item }) {
                     }}>
                     
                     {
-                    qty === 0 ? <ItemCount stock={item.stock} onAdd={countOnAdd} /> : <Link to={`/cart`}><Button variant="contained" sx={{width: '100%'}}>Finalizar compra</Button></Link>
+                    qty === 0 ? <ItemCount stock={item.stock} onAdd={countOnAdd} item={item} /> : <Link to={`/cart`}><Button variant="contained" sx={{width: '100%'}}>Finalizar compra</Button></Link>
                     }
                         
                     </Box>
