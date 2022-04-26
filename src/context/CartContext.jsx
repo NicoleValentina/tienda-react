@@ -38,6 +38,11 @@ export default function CartContextProvider({ children }) {
     setCart([]);
   }
 
+  //Total
+  function total() {
+    
+  }
+
   return (
     <>
       <CartContext.Provider value={{ cart, addToCart, removeFromCart, isInCart, clear }}>{children}</CartContext.Provider>

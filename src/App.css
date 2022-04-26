@@ -123,3 +123,14 @@ li::marker{
 a button {
     text-decoration: none;
 }
+
+
+/*Cart*/
+.itemCart {
+    padding: 25px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.itemCart img {
+    height: 150px;
+}

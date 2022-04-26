@@ -1,5 +1,4 @@
 import React from "react"
-import ItemCount from './ItemCount'
 import { Box } from '@mui/system';
 import { Link } from "react-router-dom";
 

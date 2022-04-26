@@ -1,10 +1,15 @@
-import React from 'react';
-import {ThemeProvider, createTheme } from '@mui/system';
+import React, {useContext} from 'react';
+import { CartContext } from '../context/CartContext';
+import {ThemeProvider, createTheme, Box } from '@mui/system';
 import '../index.css';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import { Link } from "react-router-dom";
 
 
-export default function Cart() {
+export default function CartWidget() {
+
+    const { cart } = useContext(CartContext)
+
     const theme = createTheme({
         palette: {
             background: {
@@ -17,12 +22,20 @@ export default function Cart() {
 
     return (
         <ThemeProvider theme={theme}>
+            <Link to={`/cart`}>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'row'
+                }}>
+                <h3>{cart.length}</h3>
                 <ShoppingBagIcon sx={{
                     color: 'background.light',
                     fontSize: 32,
                     position: 'relative',
                     top: 15
                 }} />
+                </Box>
+            </Link>
         </ThemeProvider>
     );
 }
