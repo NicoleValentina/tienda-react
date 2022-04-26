@@ -126,11 +126,21 @@ a button {
 
 
 /*Cart*/
-.itemCart {
-    padding: 25px 0;
-    border-bottom: 1px solid #ddd;
+
+[data-testid = "RemoveCircleOutlineIcon"] {
+    color: crimson;
+    cursor: pointer;
 }
 
 .itemCart img {
     height: 150px;
+}
+
+th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-sizeMedium.css-1ygcj2i-MuiTableCell-root{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
 }
