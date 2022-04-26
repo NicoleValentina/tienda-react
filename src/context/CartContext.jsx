@@ -30,17 +30,12 @@ export default function CartContextProvider({ children }) {
 
   //Remover un producto
   function removeFromCart(id) {
-    setCart([cart.filter((item) => item.id !== id)])
+    setCart(cart.filter((item) => item.id !== id))
   }
 
   //Remover todo
   function clear() {
     setCart([]);
-  }
-
-  //Total
-  function total() {
-    
   }
 
   return (

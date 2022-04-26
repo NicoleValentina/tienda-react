@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 
 //Imports tabla MUI
 import Table from "@mui/material/Table";
@@ -18,8 +18,14 @@ import TableRow from "@mui/material/TableRow";
 import "../App.css";
 
 export default function Cart() {
-
+    
   const { cart, removeFromCart, clear } = useContext(CartContext);
+
+  function totalProd(a, b) {
+    const total = a * b;
+    const totalDecimals = total.toFixed(3);
+    return totalDecimals;
+  }
 
   const H1 = styled("h1")``;
 
@@ -49,12 +55,12 @@ export default function Cart() {
           <TableContainer>
             <Table>
               <TableHead>
-                  <TableCell></TableCell>
-                  <TableCell>Producto</TableCell>
-                  <TableCell>Cantidad</TableCell>
-                  <TableCell>Precio</TableCell>
-                  <TableCell>Total</TableCell>
-                  <TableCell>Eliminar</TableCell>
+                <TableCell></TableCell>
+                <TableCell>Producto</TableCell>
+                <TableCell>Cantidad</TableCell>
+                <TableCell>Precio</TableCell>
+                <TableCell>Total</TableCell>
+                <TableCell>Eliminar</TableCell>
               </TableHead>
               <TableBody>
                 {cart.map((item) => (
@@ -64,6 +70,7 @@ export default function Cart() {
                     </TableCell>
                     <TableCell>
                       <h3>{item.nombre}</h3>
+                      <p className="itemCat">{item.categoria}</p>
                     </TableCell>
                     <TableCell>
                       <p>{item.count}</p>
@@ -72,26 +79,27 @@ export default function Cart() {
                       <p>${item.precio}</p>
                     </TableCell>
                     <TableCell>
-                      <p>${item.precio * item.count}</p>
+                      <p>${totalProd(item.count, item.precio)}</p>
                     </TableCell>
                     <TableCell>
-                    <RemoveCircleOutlineIcon
-                      onClick={() => {
-                        removeFromCart(item.id);
-                      }}
-                    />
+                      <RemoveCircleOutlineIcon
+                        onClick={() => {
+                          removeFromCart(item.id);
+                        }}
+                      />
                     </TableCell>
-                    
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
 
-          <Button endIcon={<DeleteIcon />}
+          <Button
+            endIcon={<DeleteIcon />}
             onClick={() => {
               clear();
-            }}>
+            }}
+          >
             Vaciar carrito
           </Button>
         </Box>

@@ -136,7 +136,7 @@ a button {
     height: 150px;
 }
 
-th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-sizeMedium.css-1ygcj2i-MuiTableCell-root{
+th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-sizeMedium.css-1ygcj2i-MuiTableCell-root, p.itemCat{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 11px;
@@ -144,3 +144,4 @@ th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-sizeMedium.css-1ygcj2i-MuiTa
     letter-spacing: 1px;
     color: #666;
 }
+
