@@ -145,3 +145,8 @@ th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-sizeMedium.css-1ygcj2i-MuiTa
     color: #666;
 }
 
+button.MuiButton-text.vaciarCarro {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: crimson;
+}

@@ -4,6 +4,8 @@ import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
+
+//Imports iconos MUI
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -18,7 +20,7 @@ import TableRow from "@mui/material/TableRow";
 import "../App.css";
 
 export default function Cart() {
-    
+
   const { cart, removeFromCart, clear } = useContext(CartContext);
 
   function totalProd(a, b) {
@@ -38,11 +40,12 @@ export default function Cart() {
           sx={{
             mx: 5,
             my: 5,
+            textAlign: 'center'
           }}
         >
-          <h2>Tu carrito está vacío</h2>
+          <h2>No tienes productos en tu carro</h2>
           <Link to={`/`}>
-            <Button variant="contained"> Agrega productos a tu carro</Button>
+            <Button variant="contained"> Agregar productos</Button>
           </Link>
         </Box>
       ) : (
@@ -94,13 +97,13 @@ export default function Cart() {
             </Table>
           </TableContainer>
 
-          <Button
+          <Button className= "vaciarCarro"
             endIcon={<DeleteIcon />}
             onClick={() => {
               clear();
             }}
           >
-            Vaciar carrito
+            Vaciar carro
           </Button>
         </Box>
       )}
