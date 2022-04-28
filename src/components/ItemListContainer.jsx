@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Box } from '@mui/system';
 import ItemList from './ItemList'
-import { listaProductos } from '../utils/Productos'
 import '../App.css';
 import { useParams } from "react-router";
+import { getDocs, collection, getFirestore } from 'firebase/firestore'
 
 
 
@@ -14,26 +14,32 @@ export default function ItemContainer() {
 
   const { category } = useParams()
 
-  useEffect(() => {
-    listaProductos()
-      .then((res) => {
+  useEffect( () => {
+    const db = getFirestore();
+    const getProds = collection(db, "productos");
+  
+    getDocs(getProds).then((snap) => {
 
         if (category) {
-          let categorias = res.filter((item) => item.categoria === category)
-          setProductos(categorias)
-          setTitulo(category)
-         
-        } else {
-          setProductos(res)
-          setTitulo('Productos')
+          setProductos(snap.docs.map((item) => ({ id: item.id, ...item.data() })))
+          
+          let categorias = productos.filter(
+            (item) => item.categoria === category
+          );
+          setProductos(categorias);
+          setTitulo(category);
+  
+        } 
+        else {
+          setProductos(snap.docs.map((item) => ({ id: item.id, ...item.data() })))
+          setTitulo("Productos");
         }
+    }) 
+  }, [category]);
+  
 
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-}, [category])
 
+  console.log( productos );
 
 
 return (
