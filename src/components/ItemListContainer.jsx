@@ -1,57 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { Box } from '@mui/system';
-import ItemList from './ItemList'
-import '../App.css';
+import { Box } from "@mui/system";
+import ItemList from "./ItemList";
+import "../App.css";
 import { useParams } from "react-router";
-import { getDocs, collection, getFirestore } from 'firebase/firestore'
-
-
+import { getDocs, collection, getFirestore, query, where } from "firebase/firestore";
 
 export default function ItemContainer() {
+  const [productos, setProductos] = useState([]);
+  const [titulo, setTitulo] = useState([]);
 
-  const [productos, setProductos] = useState([])
-  const [titulo, setTitulo] = useState([])
+  const { category } = useParams();
 
-  const { category } = useParams()
-
-  useEffect( () => {
+  useEffect(() => {
     const db = getFirestore();
     const getProds = collection(db, "productos");
-  
-    getDocs(getProds).then((snap) => {
+    getDocs(getProds).then((res) => {
+      setProductos(res.docs.map((item) => ({ id: item.id, ...item.data() })));
+      setTitulo("Productos");
+    });
 
-        if (category) {
-          setProductos(snap.docs.map((item) => ({ id: item.id, ...item.data() })))
-          
-          let categorias = productos.filter(
-            (item) => item.categoria === category
-          );
-          setProductos(categorias);
-          setTitulo(category);
-  
-        } 
-        else {
-          setProductos(snap.docs.map((item) => ({ id: item.id, ...item.data() })))
-          setTitulo("Productos");
-        }
-    }) 
+    if(category) {
+      const getCat = query(collection(db, "productos"), where('categoria', '==', category));
+      getDocs(getCat).then((res) => {
+        setProductos(res.docs.map((item) => ({ id: item.id, ...item.data() })))
+      setTitulo(category)
+      }) 
+    }
   }, [category]);
-  
 
 
-  console.log( productos );
+  return (
+    <>
+      <Box
+        sx={{
+          mx: 5,
+          my: 5,
+        }}
+      >
+        <h1>{titulo}</h1>
 
-
-return (
-  <>
-    <Box sx={{
-      mx: 5,
-      my: 5,
-    }}>
-      <h1>{titulo}</h1>
-
-      <ItemList productos={productos} />
-    </Box>
-  </>
-);
+        <ItemList productos={productos} />
+      </Box>
+    </>
+  );
 }

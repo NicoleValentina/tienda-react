@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { Box } from '@mui/system';
-import { getItem } from '../utils/Productos';
 import ItemDetail from './ItemDetail'
 import { useParams } from "react-router";
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 export default function ItemDetailContainer() {
 
-    const [item, setItem] = useState({})
-
     const { id } = useParams()
 
-    useEffect(() => {
-        getItem(id - 1)
-            .then((res) => {
-                setItem(res)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }, [])
+    const [item, setItem] = useState({})
 
+    useEffect(() => {
+
+        const db = getFirestore ()
+        const getItem = doc(db, 'productos', '0'+id)
+        getDoc(getItem).then((res) => {
+                setItem({ id: res.id, ...res.data() })
+
+                console.log(res.nombre);
+            })
+    }, [id])
+
+    console.log(item);
 
     return (
         <>
