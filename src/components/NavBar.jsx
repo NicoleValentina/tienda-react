@@ -14,7 +14,7 @@ export default function NavBar() {
   useEffect(() => {
     const db = getFirestore();
 
-    const getProds = collection(db, "productos");
+    const getProds = collection(db, "products");
 
     getDocs(getProds).then((res) => {
       setProductos(res.docs.map((item) => ({ ...item.data() })));

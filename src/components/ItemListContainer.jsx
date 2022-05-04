@@ -13,14 +13,14 @@ export default function ItemContainer() {
 
   useEffect(() => {
     const db = getFirestore();
-    const getProds = collection(db, "productos");
+    const getProds = collection(db, "products");
     getDocs(getProds).then((res) => {
       setProductos(res.docs.map((item) => ({ id: item.id, ...item.data() })));
       setTitulo("Productos");
     });
 
     if(category) {
-      const getCat = query(collection(db, "productos"), where('categoria', '==', category));
+      const getCat = query(collection(db, "products"), where('categoria', '==', category));
       getDocs(getCat).then((res) => {
         setProductos(res.docs.map((item) => ({ id: item.id, ...item.data() })))
       setTitulo(category)
