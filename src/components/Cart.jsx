@@ -107,11 +107,11 @@ export default function Cart() {
             Vaciar carro
           </Button>
 
-          <Box></Box>
+          <Box>
+            <CartForm />
+          </Box>
         </Box>
       )}
-
-      <CartForm />
     </>
   );
 }

@@ -12,6 +12,7 @@ export default function CartContextProvider({ children }) {
     //Agregar al carro
   function addToCart(item) {
     setCart([...cart, item])
+    totalCart()
   }
 
   //Revisar si hay items duplicados
@@ -39,6 +40,7 @@ export default function CartContextProvider({ children }) {
   //Remover todo
   function clear() {
     setCart([]);
+    totalCart()
   }
 
   //Total carro

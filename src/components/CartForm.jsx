@@ -57,7 +57,7 @@ export default function CartForm() {
         <TextField id="outlined-basic" label="Teléfono" variant="outlined" onChange={(n) => {setPhone(n.currentTarget.value)}}/>
       </Box>
 
-      <Button onClick={() => {sendOrder()}}>Finalizar compra</Button>
+      <Button variant="contained" onClick={() => {sendOrder()}}>Finalizar compra</Button>
     </>
   );
 }
