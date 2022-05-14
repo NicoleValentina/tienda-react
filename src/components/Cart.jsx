@@ -79,10 +79,10 @@ export default function Cart() {
                       <p>{item.count}</p>
                     </TableCell>
                     <TableCell>
-                      <p>${item.precio}</p>
+                      <p>{(item.precio).toLocaleString("es-CL", {style:"currency", currency:"CLP"})}</p>
                     </TableCell>
                     <TableCell>
-                      <p>${totalProd(item.count, item.precio)}</p>
+                      <p>{totalProd(item.count, item.precio).toLocaleString("es-CL", {style:"currency", currency:"CLP"})}</p>
                     </TableCell>
                     <TableCell>
                       <RemoveCircleOutlineIcon
@@ -114,7 +114,7 @@ export default function Cart() {
             Vaciar carro
           </Button>
 
-          <h2>Total: ${totalCart()}</h2> 
+          <h2>Total: {totalCart()}</h2> 
           </Box>
 
           <Box>

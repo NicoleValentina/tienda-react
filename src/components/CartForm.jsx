@@ -43,7 +43,7 @@ export default function CartForm() {
 
   return (
     <>
-      <h3>Ingresa tus datos para completar tu compra</h3>
+      <h3>Ingresa tus datos para procesar tu orden</h3>
 
       <Box
         component="form"
