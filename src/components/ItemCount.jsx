@@ -9,7 +9,7 @@ import '../App.css';
 
 export default function ItemCount({ stock, onAdd, item }) {
 
-    const { addToCart, isInCart } = useContext(CartContext)
+    const { addToCart, isInCart} = useContext(CartContext)
 
     //Sumar restar productos
     const [count, setCount] = useState(0)

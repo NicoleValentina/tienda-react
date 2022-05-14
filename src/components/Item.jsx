@@ -16,7 +16,7 @@ export default function Item({ item }) {
                     <img src={item.imagen} />
                     <h2>{item.nombre}</h2>
                 </Link>
-                <p>${item.precio}</p>
+                <p>{(item.precio).toLocaleString("es-CL", {style:"currency", currency:"CLP"})}</p>
             </Box>
         </>
 

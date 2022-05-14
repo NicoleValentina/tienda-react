@@ -150,3 +150,10 @@ button.MuiButton-text.vaciarCarro {
     font-weight: 300;
     color: crimson;
 }
+
+
+/*Orden finalizada*/
+
+.orderSummary {
+    border: 1px solid #ddd;
+}

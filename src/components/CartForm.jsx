@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import { CartContext } from "../context/CartContext";
 import { Button } from "@mui/material";
@@ -7,12 +8,13 @@ import TextField from "@mui/material/TextField";
 
 export default function CartForm() {
 
-  const { cart, total } = useContext(CartContext)
+  const { cart, totalCart, setId } = useContext(CartContext)
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [buyer, setBuyer] = useState ({})
+ 
 
   useEffect(() => {
     setBuyer({ name, email, phone })
@@ -25,17 +27,16 @@ export default function CartForm() {
     const order = {
         buyer: buyer, 
         items: cart, 
-        total: total,
+        total: totalCart().toLocaleString("es-CL", {style:"currency", currency:"CLP"}),
         date: date
     }
-
-    console.log(order);
 
     const db = getFirestore()
     const orders = collection(db, 'orders')
 
     addDoc(orders, order).then(({id}) => {
         console.log(id);
+        setId(id)
     })
   }
    
@@ -57,7 +58,9 @@ export default function CartForm() {
         <TextField id="outlined-basic" label="Teléfono" variant="outlined" onChange={(n) => {setPhone(n.currentTarget.value)}}/>
       </Box>
 
-      <Button variant="contained" onClick={() => {sendOrder()}}>Finalizar compra</Button>
+      <Link to={`/finish-order`}>
+        <Button variant="contained" onClick={() => {sendOrder()}}>Finalizar compra</Button>
+      </Link>
     </>
   );
 }

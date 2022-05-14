@@ -4,15 +4,14 @@ export const CartContext = createContext();
 
 export default function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const [total, setTotal] = useState('')
+  const [orderId, setOrderId] = useState("")
 
   //Log carro
-  console.log(cart, total);
+  console.log(cart);
   
-    //Agregar al carro
+    //Agregar al carro y sumar total
   function addToCart(item) {
-    setCart([...cart, item])
-    totalCart()
+    setCart([...cart, item])   
   }
 
   //Revisar si hay items duplicados
@@ -25,7 +24,6 @@ export default function CartContextProvider({ children }) {
         updateCart[indexItem].count = updateCart[indexItem].count + item.count
 
         setCart(updateCart)
-        totalCart()
 
     } else {
         addToCart(item)}
@@ -34,24 +32,28 @@ export default function CartContextProvider({ children }) {
   //Remover un producto
   function removeFromCart(id) {
     setCart(cart.filter((item) => item.id !== id))
-    totalCart()
   }
 
   //Remover todo
   function clear() {
     setCart([]);
-    totalCart()
   }
 
   //Total carro
-  function totalCart() {
-    const priceCart = cart.map((item) => item.precio)
-    setTotal(priceCart.reduce((ac, item) => ac + item, 0))
-  }
+  function totalCart() { 
+    const priceCart = cart.map((item) => item.precio * item.count)
+    const total = priceCart.reduce((ac, item) => ac + item, 0)
+    return total.toLocaleString("es-CL", {style:"currency", currency:"CLP"})
+  } 
  
+  //Guardar order ID
+  function setId(id) {
+     setOrderId(id)
+  }
+
   return (
     <>
-      <CartContext.Provider value={{ cart, addToCart, removeFromCart, isInCart, clear, total }}>{children}</CartContext.Provider>
+      <CartContext.Provider value={{ cart, addToCart, removeFromCart, isInCart, clear, totalCart, setId, orderId }}>{children}</CartContext.Provider>
     </>
   );
 }

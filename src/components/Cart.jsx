@@ -21,7 +21,7 @@ import TableRow from "@mui/material/TableRow";
 import "../App.css";
 
 export default function Cart() {
-  const { cart, removeFromCart, clear } = useContext(CartContext);
+  const { cart, removeFromCart, clear, totalCart } = useContext(CartContext);
 
   //Total items
   function totalProd(a, b) {
@@ -97,6 +97,13 @@ export default function Cart() {
             </Table>
           </TableContainer>
 
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between'
+          }}>
+                       
+
           <Button
             className="vaciarCarro"
             endIcon={<DeleteIcon />}
@@ -106,6 +113,9 @@ export default function Cart() {
           >
             Vaciar carro
           </Button>
+
+          <h2>Total: ${totalCart()}</h2> 
+          </Box>
 
           <Box>
             <CartForm />
