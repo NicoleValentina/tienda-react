@@ -36,7 +36,7 @@ export default function ItemDetail({ item }) {
                 }}>
                     <p>{item.categoria}</p>
                     <h2>{item.nombre}</h2>
-                    <h3>{(item.precio).toLocaleString("es-CL", {style:"currency", currency:"CLP"})}</h3>
+                    <h3>{(item.precio)}</h3>
                     <p>Stock disponible: {item.stock} unidades</p>
 
                     <Box sx={{

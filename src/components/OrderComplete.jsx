@@ -1,5 +1,6 @@
 import { Box } from "@mui/system";
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { CartContext } from "../context/CartContext";
 
 //Imports tabla MUI
@@ -17,7 +18,10 @@ import { Link } from "react-router-dom";
 
 export default function OrderComplete () {
 
-    const { cart, total, orderId, totalCart } = useContext(CartContext)
+    const { orderId } = useContext(CartContext)
+
+    const [order, setOrder] = useState([])
+    const [totalOrder, setTotalOrder] = useState('')
 
      //Total items
     function totalProd(a, b) {
@@ -25,10 +29,20 @@ export default function OrderComplete () {
         return total;
      }
 
-    // const priceCart = cart.map((item) => item.precio * item.count)
-    // console.log(priceCart);
-    // let testtotal = priceCart.reduce((ac, item) => ac + item, 0)
-    // console.log(testtotal);
+
+     useEffect(() => {
+      const db = getFirestore();
+      const getOrder = doc(db, "orders", 'ZCnVxqIqF3hjg8DzAXEu');
+      getDoc(getOrder).then((res) => {
+        setOrder([ ...res.data().items ]);
+        setTotalOrder((res.data().total).toLocaleString("es-CL", {style:"currency", currency:"CLP"}))
+      });
+
+    }, []); 
+    
+    console.log(orderId);
+    console.log(order);
+    console.log(totalOrder);
 
     return(
         <>
@@ -55,7 +69,7 @@ export default function OrderComplete () {
                 <TableCell>Total</TableCell>
               </TableHead>
               <TableBody>
-                {cart.map((item) => (
+                { order.map((item) => (
                   <TableRow className="itemCart" key={item.id}>
                     <TableCell>
                       <img src={item.imagen} />
@@ -80,7 +94,7 @@ export default function OrderComplete () {
           </TableContainer>
 
           <Box>
-              <h4 className="orderTotal">Total compra: {totalCart()}</h4>
+              <h4 className="orderTotal">Total compra: {totalOrder}</h4>
           </Box>
 
             </Box> 

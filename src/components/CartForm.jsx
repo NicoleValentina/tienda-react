@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 
 export default function CartForm() {
 
-  const { cart, totalCart, setId } = useContext(CartContext)
+  const { cart, totalCart, setId, clear } = useContext(CartContext)
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +35,6 @@ export default function CartForm() {
     const orders = collection(db, 'orders')
 
     addDoc(orders, order).then(({id}) => {
-        console.log(id);
         setId(id)
     })
   }
@@ -59,7 +58,10 @@ export default function CartForm() {
       </Box>
 
       <Link to={`/finish-order`}>
-        <Button variant="contained" onClick={() => {sendOrder()}}>Finalizar compra</Button>
+        <Button variant="contained" onClick={() => {
+        sendOrder()
+        clear()}
+        }>Finalizar compra</Button>
       </Link>
     </>
   );
