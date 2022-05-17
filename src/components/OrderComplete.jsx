@@ -98,7 +98,7 @@ export default function OrderComplete () {
           </Box>
 
             </Box> 
-                   <Link to={`/`}><Button variant='contained' >Volver a la tienda</Button></Link>
+                   <Link to={`/`}><Button variant='contained' className='backHome'>Volver a la tienda</Button></Link>
             </Box>
         </>
     )

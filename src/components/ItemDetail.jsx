@@ -13,6 +13,7 @@ export default function ItemDetail({ item }) {
         setQty(q)   
     }
 
+    // const price = (item.precio).toLocaleString("es-CL", {style:"currency", currency:"CLP"})
 
     const Img = styled('img')``
 
@@ -36,7 +37,7 @@ export default function ItemDetail({ item }) {
                 }}>
                     <p>{item.categoria}</p>
                     <h2>{item.nombre}</h2>
-                    <h3>{(item.precio)}</h3>
+                    <h3>{item.precio}</h3>
                     <p>Stock disponible: {item.stock} unidades</p>
 
                     <Box sx={{

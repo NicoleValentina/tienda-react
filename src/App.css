@@ -157,3 +157,8 @@ button.MuiButton-text.vaciarCarro {
 .orderSummary {
     border: 1px solid #ddd;
 }
+
+button.backHome{
+    display: block;
+    margin: 50px auto 50px;
+}
