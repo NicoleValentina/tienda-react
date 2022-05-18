@@ -24,7 +24,7 @@ export default function NavBar() {
     let nav = [...new Set(cat)];
     setCategoria(nav);
 
-  }, []);
+  }, [productos]);
 
   const theme = createTheme({
     palette: {
