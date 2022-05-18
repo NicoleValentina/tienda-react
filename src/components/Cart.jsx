@@ -117,7 +117,9 @@ export default function Cart() {
           <h2>Total: {totalCart()}</h2> 
           </Box>
 
-          <Box>
+          <Box sx={{
+            marginTop: 10
+          }}>
             <CartForm />
           </Box>
         </Box>

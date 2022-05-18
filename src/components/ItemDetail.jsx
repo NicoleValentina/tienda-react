@@ -10,9 +10,11 @@ export default function ItemDetail({ item }) {
     const [qty, setQty] = useState(0)
 
     function countOnAdd (q) {
-        setQty(q)   
+        setQty(q) 
+        console.log(qty);  
     }
 
+ 
     // const price = (item.precio).toLocaleString("es-CL", {style:"currency", currency:"CLP"})
 
     const Img = styled('img')``
@@ -48,8 +50,14 @@ export default function ItemDetail({ item }) {
                     {
                     qty === 0 ? <ItemCount stock={item.stock} onAdd={countOnAdd} item={item} /> : <Link to={`/cart`}><Button variant="contained" sx={{width: '100%'}}>Finalizar compra</Button></Link>
                     }
-                        
+
+                    <Box>
+                        <h4>Descripción</h4>
+                        <p>{item.descripcion}</p>
                     </Box>
+                    </Box>
+
+                    
                 </Box>
             </Box>
         </>

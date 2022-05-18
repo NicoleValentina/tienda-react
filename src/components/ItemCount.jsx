@@ -39,11 +39,11 @@ export default function ItemCount({ stock, onAdd, item }) {
                     <Button onClick={add} variant="outlined"> <AddIcon /> </Button>
                 </Box>
 
-                <Button onClick={() => { 
+                { count === 0? <Button variant="contained" disabled>Agregar al carro</Button> : <Button onClick={() => { 
                     onAdd(count); 
                     addToCart({...item, count})
                     isInCart({...item, count})
-                    }} variant="contained">Agregar al carro</Button>
+                    }} variant="contained">Agregar al carro</Button>}
             </Box>
         </>
 

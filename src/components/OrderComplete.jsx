@@ -11,13 +11,6 @@ export default function OrderComplete () {
 
     const { orderId } = useContext(CartContext)
 
-     //Total items
-    function totalProd(a, b) {
-        const total = a * b;
-        return total;
-     }
-
-
     return(
         <>
         <Box sx={{ 
@@ -32,7 +25,7 @@ export default function OrderComplete () {
             }}>
                 <h3><span>El ID de la orden es</span> {orderId}</h3> 
                 <h4>Muchas gracias por tu compra, te avisaremos cuando tu pedido vaya en camino.</h4>
-                <h4>Si necesitas ayuda con tu orden, escríbenos a ayuda@basicstore.cl</h4>
+                <h4>Si necesitas ayuda con tu orden, escríbenos a <a href="mailto:ayuda@basicstore.cl">ayuda@basicstore.cl</a> </h4>
 
             </Box> 
                    <Link to={`/`}><Button variant='contained' className='backHome'>Volver a la tienda</Button></Link>
