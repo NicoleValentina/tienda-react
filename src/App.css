@@ -11,6 +11,12 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
+h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+
 a {
     text-decoration: none;
 }
@@ -86,16 +92,23 @@ li::marker{
 
 .itemLink img{
     width: 100%;
+    transition: all linear 0.3s;
+}
+
+.itemLink img:hover{
+    -webkit-filter: grayscale(70%); 
+  filter: grayscale(70%);
 }
 
 .itemLink h2 {
     color: #000;
     margin-bottom: 0;
-    transition: all 1s;
+    transition: all 0.5s;
+    display: inline-block;
 }
 
 .itemLink h2:hover{
-    transform: skewX(-15deg);
+    background-color: aqua;
 }
 
 /*Item Detail*/
@@ -124,6 +137,12 @@ a button {
     text-decoration: none;
 }
 
+.description h4 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
 /*Cart*/
 
@@ -161,4 +180,23 @@ button.MuiButton-text.vaciarCarro {
 button.backHome{
     display: block;
     margin: 50px auto 50px;
+}
+
+.orderSummary h3 {
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.orderSummary h2 span {
+    background-color: aqua;
+}
+
+.orderSummary h3 a{
+    color: #000;
+    transition: all linear 0.3s;
+}
+
+.orderSummary h3 a:hover{
+    background-color: aqua;
+    text-decoration: underline;
 }

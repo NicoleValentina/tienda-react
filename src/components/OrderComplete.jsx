@@ -23,9 +23,9 @@ export default function OrderComplete () {
                 px: 3,
                 py: 3
             }}>
-                <h3><span>El ID de la orden es</span> {orderId}</h3> 
-                <h4>Muchas gracias por tu compra, te avisaremos cuando tu pedido vaya en camino.</h4>
-                <h4>Si necesitas ayuda con tu orden, escríbenos a <a href="mailto:ayuda@basicstore.cl">ayuda@basicstore.cl</a> </h4>
+                <h2>El ID de la orden es <span>{orderId}</span></h2> 
+                <h3>Muchas gracias por tu compra, te avisaremos cuando tu pedido vaya en camino.</h3>
+                <h3>Si necesitas ayuda con tu orden, escríbenos a <a href="mailto:ayuda@basicstore.cl">ayuda@basicstore.cl</a> </h3>
 
             </Box> 
                    <Link to={`/`}><Button variant='contained' className='backHome'>Volver a la tienda</Button></Link>

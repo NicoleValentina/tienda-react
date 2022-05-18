@@ -14,9 +14,6 @@ export default function ItemDetail({ item }) {
         console.log(qty);  
     }
 
- 
-    // const price = (item.precio).toLocaleString("es-CL", {style:"currency", currency:"CLP"})
-
     const Img = styled('img')``
 
     return (
@@ -39,19 +36,22 @@ export default function ItemDetail({ item }) {
                 }}>
                     <p>{item.categoria}</p>
                     <h2>{item.nombre}</h2>
-                    <h3>{item.precio}</h3>
+                    <h3>${item.precio}</h3>
                     <p>Stock disponible: {item.stock} unidades</p>
 
                     <Box sx={{
                         width: '50%',
-                        my: 10,
+                        my: 5,
+                    
                     }}>
                     
                     {
                     qty === 0 ? <ItemCount stock={item.stock} onAdd={countOnAdd} item={item} /> : <Link to={`/cart`}><Button variant="contained" sx={{width: '100%'}}>Finalizar compra</Button></Link>
                     }
 
-                    <Box>
+                    <Box sx={{
+                        my: 10
+                    }} className='description'>
                         <h4>Descripción</h4>
                         <p>{item.descripcion}</p>
                     </Box>
